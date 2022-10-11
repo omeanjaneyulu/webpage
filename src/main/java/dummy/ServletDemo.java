@@ -1,4 +1,4 @@
-package com.controler.demo;
+package dummy;
 
 import java.io.IOException;
 
@@ -15,9 +15,8 @@ import com.webcreation.bean.Encapsulation;
 //@webServlet("/DemoServelet")
 	public class ServletDemo extends HttpServlet{
 
-	private static final long serVersionUID =1L;
-	private String employeeName;
-
+	private static final long serialVersionUID = 1L;
+	
 	public ServletDemo() {
 	super();
 	}
@@ -25,7 +24,7 @@ import com.webcreation.bean.Encapsulation;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	System.out.println("form submitted on GET");
 	String employeeId = request.getParameter("employeeId");
-	String employeefirstName = request.getParameter("employeeName");
+	String employeeName = request.getParameter("employeeName");
 	 String fatherName=request.getParameter("fatherName");
 	 String mobileNumber=request.getParameter("mobileNumber");
 	 String emailId=request.getParameter("emailId");
@@ -41,14 +40,10 @@ import com.webcreation.bean.Encapsulation;
 	es.setAddress(address);
 	es.setDob(dob);
 	
-	
-	
-	
-
 	DBoperation we = new DBoperation();
 	int result = we.insertDataWithStatement(es);
 	HttpSession session = request.getSession();
-	session.setAttribute("EmployeObject", es);
+	session.setAttribute("EmployeeObject", es);
 
 	RequestDispatcher empservlet = request.getRequestDispatcher("/EmployeeData");
 	RequestDispatcher failure = request.getRequestDispatcher("Fail.html");
@@ -63,29 +58,26 @@ import com.webcreation.bean.Encapsulation;
 
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		 System.out.println("Submitted on post");
-		 String employeeId = request.getParameter("employeeId");
-		 int id = 0;
-		 try {
-		 id = Integer.parseInt(employeeId);
-		 }catch(Exception e) {
-		 id = 0;
-		 }
+		 String employeeId = request.getParameter("EmployeeId");
+		 
 
 		 Encapsulation es = new Encapsulation();
 		 es.setEmployeeId(employeeId);
 
 		 DBoperation we = new DBoperation();
 		 int result = we.deletedata(es);
-		 RequestDispatcher success = request.getRequestDispatcher("success.html");
-		 RequestDispatcher failure = request.getRequestDispatcher("failue.html");
+		 RequestDispatcher success = request.getRequestDispatcher("Success.html");
+		 RequestDispatcher failure = request.getRequestDispatcher("Fail.html");
 		 if(result>0) {
 		 success.forward(request, response);
 		 }else {
 		 failure.forward(request, response);
 		 }
+		 
 	 }
-	}
-
+		
+	 }
+	
 
 
 

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
  try {
 	 Class.forName("com.mysql.cj.jdbc.Driver");
-	 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrm","root","Ome@1995");
+	 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitty","root","Ome@1995");
 	 }
      
 	
