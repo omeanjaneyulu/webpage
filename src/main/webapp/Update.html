@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Employee Data</title>
+<script type = "text/javascript" src = "Idvalidation.js"></script>
 </head>
 
 <body>
 <form action = "UpdateServlet" method = "get">
 
-<span style="colour:red">*</span>EmployeeId:</br>
-<input type="text" name="employeeId"></br>
+
+<span style="colour:red">*</span>EmployeeId:
+<input type="text" name="employeeId" placeholder="employeeId" id="employeeId"
+onblur="clearerrorMsg()">
+<span id="errorMsgEmployeeId" style="color: red;"></span>
+
 
 <span style="colour:red">*</span>EmployeeName:</br>
 <input type="text" name="employeeName"></br>
@@ -26,8 +31,10 @@
 <input type="text" name="address"></br>
 
 
-
-<input type = "submit",value ="submit">
+<input type="submit" value="submit" class="btn btn-success"
+onclick="return validcheck()">
+<!-- for functioning use return validcheck it displays error here but works fine -->
+<input type = "reset",value ="cancel" class="btn btn-danger">
 
 </form>
 

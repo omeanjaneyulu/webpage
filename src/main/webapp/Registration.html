@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type = "text/javascript" src = "Registration.js"></script>
+
 </head>
 
 <body>
@@ -9,30 +11,50 @@
 <h5><strong>ENCAPSULATION REGISTRATION FORM</strong></h5>
 </div>
 <form action = "ServletDemo" method = "get">
+<table>
+<tr>
+<td><span style="colour:red">*</span>EmployeeId:</td>
+<td><input type="text" name="employeeId" placeholder="employeeId" id="employeeId"
+onblur="clearErrorMessage()"><br></td>
+<td><span id="errorMsgEmployeeId" style="color: red;"></span></td></tr>
 
-<span style="colour:red">*</span>EmployeeId:</br>
-<input type="text" name="employeeId"></br>
+<tr>
+<td><span style="colour:red">*</span>EmployeeName:</td>
+<td><input type="text" name="employeeName"placeholder="employeeName" id="employeeName"
+onblur="clearErrorMessage()"><br></td>
+<td><span id="errorMsgEmployeeName" style="color: red;"></span></td></tr>
 
-<span style="colour:red">*</span>EmployeeName:</br>
-<input type="text" name="employeeName"></br>
 
-<span style="colour:red">*</span>fatherName:</br>
-<input type="text" name="fatherName"> </br>
+<tr>
+<td><span style="colour:red">*</span>fatherName:</td>
+<td><input type="text" name="fatherName"placeholder="fatherName" id="fatherName"
+onblur="clearErrorMessage()"><br></td>
+<td><span id="errorMsgfatherName" style="color: red;"></span></td></tr>
 
-<span style="colour:red">*</span>MobileNumber:</br>
-<input type="text" name="mobileNumber"></br>
+<tr>
+<td>MobileNumber:</td>
+<td><input type="text" name="mobileNumber"></td></tr>
 
-<span style="colour:red">*</span>EmailId:</br>
-<input type="text" name="emailId"></br>
+<tr>
+<td>EmailId:</td>
+<td><input type="text" name="emailId"></td></tr>
 
-<span style="colour:red">*</span>address:</br>
-<input type="text" name="address"></br>
+<tr>
+<td>
+Address:</td>
+<td><input type="text" name="address"></td></tr>
 
-<span style="colour:red">*</span>dob:</br>
-<input type="text" name="dob"></br>
+<tr>
+<td>Dob:</td>
+<td><input type="text" name="dob"></td></tr>
 
-<input type = "submit",value ="submit">
-
+<tr>
+<td><input type="submit" value="submit" class="btn btn-success"
+onclick="return validcheck()">
+<!-- for functioning use return validcheck it displays error here but works fine -->
+<input type = "reset",value ="cancel" class="btn btn-danger"></td>
+</tr>
+</table>
 </form>
 </body>
 </html>
